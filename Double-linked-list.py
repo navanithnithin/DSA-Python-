@@ -40,6 +40,22 @@ class DoubleLinkedList:
             count += 1
             itr = itr.next
 
+    def insertAtValue(self, data, value):
+        if self.head == value:
+            self.insertAtStart(data)
+            return
+        itr = self.head
+        while itr:
+            if itr.data == value:
+                itr = Node(data, itr, itr.prev)
+                itr.prev.next=itr
+                itr.next.prev=itr
+                return
+            itr = itr.next
+
+    def removeAtValue(self, index):
+        pass
+
     def removeAt(self, index):
         if index > self.getLength():
             raise Exception("invalid index")
@@ -110,8 +126,8 @@ if __name__ == "__main__":
     # dl.printForward()
     dl.removeAt(1)
     dl.printBackward()
-    
-    # dl.printForward()
 
-    
-    
+    dl.printForward()
+    dl.insertAtValue("RCB", "Rudha")
+    dl.printForward()
+    dl.printBackward()
