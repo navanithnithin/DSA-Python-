@@ -46,7 +46,7 @@ class HashTable:
     def getProb(self, index):
         return [*range(index, len(self.arr))] + [*range(0, index)]
 
-    def getSlots(self, key, index):
+    def getSlots(self, key,index):
         probRange = self.getProb(index)
         for i in probRange:
             if self.arr[i] == None:
@@ -65,3 +65,4 @@ if __name__ == "__main__":
     # del ht["march 7"]
     print(ht.arr)
     print(ht["march 7"])
+    
